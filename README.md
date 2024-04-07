@@ -7,6 +7,8 @@ Tämän hetkiset ominaisuudet:
 
 
 Mahdolliset tulevat ominaisuudet:
+- Korjaa evästeet (tällä hetkellä kirjautuu automaattisesti vanhoilla tunnuksilla)
+- Luo toimiva osoite (niin että ei tarvitse ajaa terminaalista)
 - Osta otus, otus tallentuu omaan tietokantaan
 - Peliraha, joka laskee otuksen hinnan verran kun ostat otuksen
 - Omat otukset sivu
