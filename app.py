@@ -39,8 +39,9 @@ def login():
     username = request.form["username"]
     password = request.form["password"]
     session["username"] =username
+    session["password"] = password
     #sql = "SELECT id, password FROM registered WHERE username=:username"
-    jes = registered.select().where(registered.c.username == "username")
+    jes = registered.select().where(registered.c.username == username)
     #result = db.session execute(sql, {"username":username})
     result = db.session.execute(jes)
     user = result.fetchone()
@@ -73,10 +74,7 @@ def singup():
         username = request.form["username"]
         password = request.form["password"]
         hash_value = generate_password_hash(password)
-
-        # sql = "INSERT INTO registered (username, password) VALUES (:content)"
         ins = registered.insert().values(username=username,password=hash_value)
-        # db.session.execute(sql,{"username":username,"password":hash_value})
         db.session.execute(ins)
         db.session.commit()
         #flash("Käyttäjän luonti onnistui, kirjaudu sisään")
