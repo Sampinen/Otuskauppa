@@ -2,8 +2,8 @@
 Nettipeli jossa voi ostaa (ja myydä) fantasiaotuksia. Ajatuksena oli, että olisin voinut piirtää ainakin osan otuksista itse. 
 
 Tämän hetkiset ominaisuudet:
--Luo käyttäjä
--Kirjaudu sisään
+- Luo käyttäjä
+- Kirjaudu sisään
 
 
 Mahdolliset tulevat ominaisuudet:
