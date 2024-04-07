@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<title>Otuskauppa</title>
+<h1>Otuskauppa</h1>
+<p>{{session.username}}</p>
+{% if session.username%}
+  {% with messages = get_flashed_messages() %}
+   {% if messages %}
+     <ul class=flashes>
+    {% for message in messages %}
+        <p>{{ message }}</p>
+      </div>
+    {% endfor %}
+     </ul>
+   {% endif %}
+  {% endwith %}
+  
+{% else %}
+<b>Tervetuloa! Kirjaudu sisään tai luo uusi tunnus jatkaaksesi.</b> <br>
+<form action="/login" method="POST">
+<p> Käytttäjätunnus:<br>
+<input type="text" name="username"></p>
+<p>Salasana:<br>
+<input type="password" name="password"></p>
+<input type="submit" value="Kirjaudu"></form></p>
+
+
+Eikö sinulla ole käyttäjätunnusta? <a href="/signup">Luo uusi käyttäjä</a>
+</form>
+
+{% endif %}
+<img src="/static/haukerias.png">
+
+
