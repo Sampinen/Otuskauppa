@@ -1,5 +1,5 @@
 # Otuskauppa
-Nettipeli jossa voi ostaa (ja myydä) fantasiaotuksia. Ajatuksena oli, että olisin voinut piirtää ainakin osan otuksista itse. 
+Nettipeli jossa voi ostaa (ja myydä) fantasiaotuksia. Ajatuksena oli, että olisin voinut piirtää ainakin osan otuksista itse. Valitettavasti sovellus on vielä kovin vaiheessa sillä muut kurssit ovat vieneet paljon aikaa, mutta koitan parhaani mukaan kiriä aikataulua.
 
 Tämän hetkiset ominaisuudet:
 - Luo käyttäjä
