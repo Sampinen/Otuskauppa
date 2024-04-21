@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<title>Kauppa</title>
+</head>
+
+<body>
+    {% with messages = get_flashed_messages() %}
+   {% if messages %}
+     <ul class=flashes>
+    {% for message in messages %}
+        <p>{{ message }}</p>
+      </div>
+    {% endfor %}
+     </ul>
+     {%endif%}
+     {% endwith %}
+    <p>Varat: {{session.money}} köntsäkolikkoa</p>
+    <a href="/mypage">Takaisin omalle sivulle</a>
+    <br/>
+    <a href="/logout">Kirjaudu ulos</a>
+    <br/>
+<img src="/static/haukerias.png"
+           width="400"
+           height="auto"/>
+<br/>  
+<p> Haukerias: {{haukerias_price}} köntsäkolikkoa</p>
+<a href="/buyhaukerias">Osta</a> <br/>
+<img src="/static/lohari.jpg"
+          width="400"
+          height="auto">
+<br/>
+<p>Lohari: {{lohari_price}} köntsäkolikkoa</p>
+<a href="/buylohari">Osta</a>
+<br/>
+
+</body>

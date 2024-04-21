@@ -4,20 +4,18 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <title>Otuskauppa</title>
 <h1>Otuskauppa</h1>
-{% if session.username%}
   {% with messages = get_flashed_messages() %}
-   {% if messages %}
-     <ul class=flashes>
-    {% for message in messages %}
-        <p>{{ message }}</p>
-      </div>
-    {% endfor %}
-     </ul>
-   {% endif %}
-  {% endwith %}
-  
-{% else %}
-<b>Tervetuloa! Kirjaudu sisään tai luo uusi tunnus jatkaaksesi.</b> <br>
+       {% if messages %}
+         <ul class=flashes>
+           {% for message in messages %}
+              <p>{{ message }}</p>
+               </div>
+           {% endfor %}
+         </ul>
+        {% else %}
+          <b>Tervetuloa! Kirjaudu sisään tai luo uusi tunnus jatkaaksesi.</b> <br>
+    {%endif%}
+    {% endwith %}
 <form action="/login" method="POST">
 <p> Käytttäjätunnus:<br>
 <input type="text" name="username"></p>
@@ -28,10 +26,6 @@
 
 Eikö sinulla ole käyttäjätunnusta? <a href="/signup">Luo uusi käyttäjä</a>
 </form>
-
-{% endif %}
 <img src="/static/haukerias.png">
-
-
 
 
