@@ -11,7 +11,7 @@ Tämän hetkiset ominaisuudet:
 
   
 Mahdolliset tulevat ominaisuudet:
-- Foorumi, jolle 
+- Foorumi, jolle voi kirjoittaa palautetta ja jutella muiden sovelluksen käyttäjien kanssa
 - Lisää taidetta
 - Visuaalista parantelua
 - Otuksen nimeä voi vaihtaa
