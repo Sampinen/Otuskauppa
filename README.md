@@ -4,21 +4,24 @@ Nettipeli jossa voi ostaa (ja myydä) fantasiaotuksia. Ajatuksena oli, että oli
 Tämän hetkiset ominaisuudet:
 - Luo käyttäjä
 - Kirjaudu sisään
-
-
-Mahdolliset tulevat ominaisuudet:
-- Korjaa evästeet (tällä hetkellä kirjautuu automaattisesti vanhoilla tunnuksilla)
-- Luo toimiva osoite (niin että ei tarvitse ajaa terminaalista)
 - Osta otus, otus tallentuu omaan tietokantaan
 - Peliraha, joka laskee otuksen hinnan verran kun ostat otuksen
-- Omat otukset sivu
+-  Omat otukset sivu
+-  Jokaisella pelin otuksella on nyt oma sivu
+Mahdolliset tulevat ominaisuudet:
+- Foorumi, jolle 
+- Lisää taidetta
+- Visuaalista parantelua
+- Otuksen nimeä voi vaihtaa
+- Parempi nimi sovellukselle ja pelinsisäiselle valuutalle.
+- Koodin parantelua (ainakin /buy osuus niin, että jokaiselle otukselle ei tarvitse kopioida samaa koodia uudestaan)
+- Salasanan tulee sisätää sekä kirjaimia, että numeroita
+- Luo toimiva osoite (niin että sovellusta ei tarvitse ajaa terminaalista)
 - Ruokapalkki, joka laskee 10% päivässä
 - Sivu jolta voi "ostaa" pelirahaa
 - Kertakäyttöiset/monikäyttöiset "lahjakoodit"
 - Sivu jolla voit myydä ja ostaa toisten pelaajien myynnissä olevia otuksia
 - Mahdollisesti jokin minipeli, josta saa myös rahaa
-
-Risuaidalla merityt osat koodia ovat vielä työn alla
 
 Miten saan sovelluksen Toimimaan?
 
@@ -40,9 +43,6 @@ pip install python-dotenv
 - Avaa uusi terminaali ja aja start-pg.sh
 - Avaa vielä toinen uusi terminaali kirjoittamalla psql
 - Palaa takaisin ensimmäiseen terminaaliin ja aja komento: flask run
-
-Huom! Kirjautumisessa on vielä ongelmia ja saatat joutua tyhjentämään välimuistin aloittaessasi uuden istunnon.
-Tyhjennä välimuisti painamalla kolmea pistettä oikeassa yläreunassa ja sitten paina "clear browsing data" (Chromium)
 
 
 
