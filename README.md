@@ -8,6 +8,8 @@ Tämän hetkiset ominaisuudet:
 - Peliraha, joka laskee otuksen hinnan verran kun ostat otuksen
 -  Omat otukset sivu
 -  Jokaisella pelin otuksella on nyt oma sivu
+
+  
 Mahdolliset tulevat ominaisuudet:
 - Foorumi, jolle 
 - Lisää taidetta
