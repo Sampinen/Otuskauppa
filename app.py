@@ -40,14 +40,14 @@ creatures = sql.Table(
     sql.Column('type',String),
     sql.Column('owner',String)
 )
-#Taulu, joka sisältää lahjakoodeja, joilla voi lunastaa pelinsisäistä rahaa.
+#Taulu, joka sisältää lahjakoodeja, joilla voi lunastaa pelinsisäistä rahaa. Ei vielä käytössä
 giftcodes = sql.Table(
     'giftcodes', meta,
     sql.Column('id',Integer,primary_key=True),
     sql.Column('code',String),
     sql.Column('claimed',Boolean)
 )
-#Taulu, joka sisältää foorumiin postatut viestit ja niiden lähettäjät
+#Taulu, joka sisältää foorumiin postatut viestit ja niiden lähettäjät. Ei vielä käytössä
 forumposts = sql.Table(
     'forumposts',meta,
     sql.Column('id',Integer,primary_key=True),
@@ -55,7 +55,7 @@ forumposts = sql.Table(
     sql.Column('username',String)
 )
 
-
+#Pääsivu, josta pääsee kirjautumaan sisään
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -100,12 +100,13 @@ def singup():
         password = request.form["password"]
         if len(password) <8:
             flash("Salasanan tulee olla vähintään 8 merkkiä")
-            return redirect("/logout")
+            return redirect("/")
         if len(password) >30:
             "Salasanan pituus ei saa ylittää 30 merkkiä"
-            return redirect("/logout")
+            return redirect("/")
         if len(username) >20:
             flash("Käyttäjänimen maksimipituus on 20 merkkiä")
+            return redirect("/")
         hash_value = generate_password_hash(password)
 
         # sql = "INSERT INTO registered (username, password) VALUES (:content)"
@@ -222,12 +223,19 @@ def page(id):
     if creature_type == "lohari":
         picture = "/static/lohari.jpg"
     creature_owner = creature.owner
+    #Tällä hetkellä is_owner muuttuja ei vielä tee mitään
     if username == creature_owner:
         is_owner = True
     else:
         is_owner = False
 
     return render_template("creature.html",creature_id=creature_id,creature_name=creature_name,creature_type=creature_type, creature_owner =creature_owner,picture=picture,is_owner = is_owner)
+
+#Ei vielä toiminnassa
+@app.route("/change_name")
+def change_name():
+
+    redirect("/creature/"+str(creature_id))
 
 
 
