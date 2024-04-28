@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 
-<title>{{creature_name}}</title>
-<p>ID: {{creature_id}}</p>
-<p>Omistaja: {{creature_owner}}</p>
-<p>Nimi: {{creature_name}}</p>
+<html>
 
-<img src={{picture}}>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>{{creature_name}}</title>
+</head>
+
+<body>
+    <a href="/mypage">Takaisin omalle sivulle</a> 
+    <br>
+    <p>ID: {{creature_id}}</p>
+    <p>Omistaja: {{creature_owner}}</p>
+    <p>Nimi: {{creature_name}}</p>
+    <img src={{picture}}>
+     { %if is_owner%}
+    <form action="/changename/{{creature_id}}" method="POST">
+    uusi nimi: <input type="text" name="name"> 
+    <br>
+    <input type="submit" value="Vaihda nimeä"> 
+    <br>
+    {%endif%}
+</body>
+
+</html>

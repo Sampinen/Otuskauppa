@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<title>Omat otukset</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Omat otukset</title>
 </head>
 
 <body>
-<hr>
-{% for creature in my_creatures %}
-<a href="/creature/{{creature.id}}">{{creature.name}}</a>
-<hr>
-{% endfor %}
+    <hr>
+    {% for creature in my_creatures %}
+    <a href="/creature/{{creature.id}}">{{creature.name}}</a>
+    <hr>
+    {% endfor %}
 </body>
 
 </html>

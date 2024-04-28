@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<title>Otuskauppa</title>
-<h1>Otuskauppa</h1>
-  {% with messages = get_flashed_messages() %}
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Otuskauppa</title>
+  </head>
+
+  <body>
+    <h1>Otuskauppa</h1>
+    {% with messages = get_flashed_messages() %}
        {% if messages %}
          <ul class=flashes>
            {% for message in messages %}
@@ -16,16 +21,16 @@
           <b>Tervetuloa! Kirjaudu sisään tai luo uusi tunnus jatkaaksesi.</b> <br>
     {%endif%}
     {% endwith %}
-<form action="/login" method="POST">
-<p> Käytttäjätunnus:<br>
-<input type="text" name="username"></p>
-<p>Salasana:<br>
-<input type="password" name="password"></p>
-<input type="submit" value="Kirjaudu"></form></p>
-
-
-Eikö sinulla ole käyttäjätunnusta? <a href="/signup">Luo uusi käyttäjä</a>
-</form>
-<img src="/static/haukerias.png">
+    <form action="/login" method="POST">
+      <p> Käytttäjätunnus:<br>
+        <input type="text" name="username"></p>
+      <p>Salasana:<br>
+        <input type="password" name="password"></p>
+        <input type="submit" value="Kirjaudu"></form></p>
+        Eikö sinulla ole käyttäjätunnusta? <a href="/signup">Luo uusi käyttäjä</a>
+      </form>
+    <img src="/static/haukerias.png">
+  </body>
+</html>
 
 
