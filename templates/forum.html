@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <title>Foorumi</title>
+    </head>
+
+    <body>
+        {% with flashes = get_flashed_messages() %}
+           {% if flashes %}
+               <ul class=flashes>
+                {% for flash in flashes %}
+                 <p>{{ flash }}</p>
+                   </div>
+                {% endfor %}
+               </ul>
+            {%else%}
+                <p>Tervetuloa foorumille! Täällä voit mm. keskustella pelistä ja esittää ehdotuksia liittyen pelin kehitykseen.</p>
+            {%endif%}
+        {% endwith %}
+        <hr>
+        {% for message in messages %}
+        {{ message.content }}
+        <hr>
+        {% endfor %}
+        <a href="/newmessage">Lähetä viesti</a>
+     
+    </body>
+</html>
