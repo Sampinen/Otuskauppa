@@ -232,10 +232,37 @@ def page(id):
     return render_template("creature.html",creature_id=creature_id,creature_name=creature_name,creature_type=creature_type, creature_owner =creature_owner,picture=picture,is_owner = is_owner)
 
 #Ei vielä toiminnassa
-@app.route("/change_name")
-def change_name():
+@app.route("/changename/<creature_id>",methods=["POST"])
+def changename(creature_id):
+    username = session.get("username")
+    is_owner = session.get(creature_id)
+    if not username or not creature_id:
+        session.pop('_flashes', None)
+        flash("Sinulla ei ole oikeuksia toteuttaa tätä toimintoa.")
+        redirect("/")
+    new_name = request.form["name"]
+    update_query = creatures.update().values(name=new_name).where(creatures.c.id == creature_id)
+    db.session.execute(update_query)
+    db.session.commit()
+    return redirect("/creature/"+str(creature_id))
 
-    redirect("/creature/"+str(creature_id))
+@app.route("/forum")
+def forum():
+    return render_template("forum.html")
 
-
+@app.route("/send", methods=["POST"])
+def send():
+    webcontent = request.form["content"]
+    if len(webcontent) >250:
+        session.pop('_flashes', None)
+        flash("Viestin pituus ei saa ylittää 250 merkkiä")
+        return redirect("/forum")
+    if len(webcontent) <1:
+        session.pop('_flashes', None)
+        flash("Et voi lähettää tyhjää viestiä")
+        return redirect("/forum")
+    ins = messages.insert().values(content = webcontent)
+    db.session.execute(ins)
+    db.session.commit()
+    return redirect("/forum")
 
