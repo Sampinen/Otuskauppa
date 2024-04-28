@@ -142,57 +142,35 @@ def shop():
     session["lohari_price"]=lohari_price
 
     return render_template("shop.html", haukerias_price = haukerias_price, lohari_price=lohari_price)
-#Osta otus, joka on tyyppiä haukerias
-@app.route("/buyhaukerias")
-def buy():
+#Osta otus
+@app.route("/buy/<creature_type>")
+def buy(creature_type):
     username = session.get("username")
     if not username:
+        session.pop('_flashes', None)
+        flash("Sinun täytyy ensin kirjautua sisään")
         return redirect("/")
     
     money_query = select(registered.c.money).where(registered.c.username == username)
     update_query = db.session.execute(money_query)
     current_money = update_query.scalar()
-    haukerias_price = session.get("haukerias_price")
-    if current_money < haukerias_price:
+    creature_price = session.get(f"{creature_type}_price")
+    if current_money < creature_price:
         flash("Ei tarpeeksi rahaa")
         return redirect("/shop")
 
-    updated_money = current_money - session.get("haukerias_price")
+    updated_money = current_money - creature_price
     update_query = registered.update().values(money=updated_money).where(registered.c.username == username)
     db.session.execute(update_query)
     db.session.commit()
 
-    add_haukerias = insert(creatures).values( type="haukerias", owner = username)
-    db.session.execute(add_haukerias)
+    add_creature = insert(creatures).values( type=creature_type, owner = username)
+    db.session.execute(add_creature)
     db.session.commit()
     session["money"] = updated_money
 
     return redirect("/shop")
-#Osta otus, joka on tyyppiä lohari
-@app.route("/buylohari")
-def buylohari():
-    username = session.get("username")
-    if not username:
-        return redirect("/")
-    money_query = select(registered.c.money).where(registered.c.username == username)
-    money_result = db.session.execute(money_query)
-    current_money = money_result.scalar()
-    lohari_price = session.get("lohari_price")
-    if current_money < lohari_price:
-        flash("Ei tarpeeksi rahaa")
-        return redirect("/shop")
-    updated_money = current_money - lohari_price
-    update_query = registered.update().values(money=updated_money).where(registered.c.username == username)
-    db.session.execute(update_query)
-    db.session.commit()
 
-    add_lohari = insert(creatures).values( type="lohari", owner = username)
-    db.session.execute(add_lohari)
-    db.session.commit()
-
-    session["money"] = updated_money
-
-    return redirect("/shop")
 #sivu, jonka kautta pääsee katselemaan omistamiaan otuksia
 @app.route("/mycreatures")
 def mycreatures():
