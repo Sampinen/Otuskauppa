@@ -1,5 +1,5 @@
 # Otuskauppa
-Nettipeli jossa voi ostaa (ja myydä) fantasiaotuksia. Ajatuksena oli, että olisin voinut piirtää ainakin osan otuksista itse. Valitettavasti sovellus on vielä kovin vaiheessa sillä muut kurssit ovat vieneet paljon aikaa, mutta koitan parhaani mukaan kiriä aikataulua.
+Nettipeli jossa voi ostaa (ja myydä) fantasiaotuksia. Ajatuksena oli, että olisin voinut piirtää ainakin osan otuksista itse.
 
 Tämän hetkiset ominaisuudet:
 - Luo käyttäjä
@@ -8,20 +8,23 @@ Tämän hetkiset ominaisuudet:
 - Peliraha, joka laskee otuksen hinnan verran kun ostat otuksen
 -  Omat otukset sivu
 -  Jokaisella pelin otuksella on nyt oma sivu
+- Uudet commit tägit ovat kuvaavampia (ei pelkkä default teksti) ja niitä on tehty tiheämpään tahtiin
 
+
+Kesken:
+- Foorumi, jolle voi kirjoittaa palautetta ja jutella muiden sovelluksen käyttäjien kanssa
+- Otuksen nimeä voi vaihtaa
+- Kertakäyttöiset/monikäyttöiset "lahjakoodit"
+- Koodia paranneltu siistimmäksi ja enemmän materiaalia vastaavaksi
   
 Mahdolliset tulevat ominaisuudet:
-- Foorumi, jolle voi kirjoittaa palautetta ja jutella muiden sovelluksen käyttäjien kanssa
 - Lisää taidetta
 - Visuaalista parantelua
-- Otuksen nimeä voi vaihtaa
 - Parempi nimi sovellukselle ja pelinsisäiselle valuutalle.
-- Koodin parantelua (ainakin /buy osuus niin, että jokaiselle otukselle ei tarvitse kopioida samaa koodia uudestaan)
 - Salasanan tulee sisätää sekä kirjaimia, että numeroita
 - Luo toimiva osoite (niin että sovellusta ei tarvitse ajaa terminaalista)
 - Ruokapalkki, joka laskee 10% päivässä
 - Sivu jolta voi "ostaa" pelirahaa
-- Kertakäyttöiset/monikäyttöiset "lahjakoodit"
 - Sivu jolla voit myydä ja ostaa toisten pelaajien myynnissä olevia otuksia
 - Mahdollisesti jokin minipeli, josta saa myös rahaa
 
