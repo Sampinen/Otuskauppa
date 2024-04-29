@@ -8,14 +8,23 @@
     </head>
 
     <body>
+        {%block title%}
+        <h1>Pelaajan {{session.username}} kotisivu</h1>
         <p>Tervetuloa takaisin {{session.username}} !</p>
+        {%endblock%}
+
+
+        {%block content%}
         <p>Rahat:{{session.money}}</p>
-        <a href="/shop">Kauppaan</a>
-        <br>
+        <a href="/shop">Kauppa</a>
         <a href="/mycreatures">Omat otukset</a>
+        <a href="/forum">Keskustelupalsta</a>
         <br>
         <a href="/logout">Kirjaudu ulos</a>
-        <br>
+        {%endblock%}
+
+
+
     </body>
 
 

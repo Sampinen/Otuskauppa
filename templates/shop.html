@@ -6,6 +6,8 @@
 </head>
 
 <body>
+  {%block title%}
+  <h1>Kauppa</h1>
     {% with messages = get_flashed_messages() %}
    {% if messages %}
      <ul class=flashes>
@@ -16,12 +18,12 @@
      </ul>
      {%endif%}
      {% endwith %}
+    {%endblock%}
     <p>Varat: {{session.money}} köntsäkolikkoa</p>
     <a href="/mypage">Takaisin omalle sivulle</a>
-    <br/>
     <a href="/logout">Kirjaudu ulos</a>
-    <br/>
     <a href="/giftcodes">Onko sinulla lahjakoodi? Klikkaa tästä.</a>
+    <br/>
     <img src="/static/haukerias.png"
            width="400"
            height="auto"/>

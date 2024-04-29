@@ -75,8 +75,9 @@ def mypage():
 def shop():
     username = session.get("username")
     if not username:
+        session.pop('_flashes', None)
+        
         return redirect("/login")
-    #session.pop('_flashes', None)
     haukerias_query= select(creatureprices.c.price).where(creatureprices.c.type == "haukerias")
     haukerias_result = db.session.execute(haukerias_query)
     haukerias_price= haukerias_result.scalar()

@@ -8,11 +8,15 @@
 </head>
 
 <body>
+    {%block title%}
+    <h1>Omat otukset</h1>
     <hr>
     {% for creature in my_creatures %}
     <a href="/creature/{{creature.id}}">{{creature.name}}</a>
     <hr>
     {% endfor %}
+    {%endblock%}
+    
 </body>
 
 </html>

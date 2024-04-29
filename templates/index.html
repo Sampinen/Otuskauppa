@@ -8,6 +8,7 @@
   </head>
 
   <body>
+    {%block title%}
     <h1>Otuskauppa</h1>
     {% with messages = get_flashed_messages() %}
        {% if messages %}
@@ -21,6 +22,10 @@
           <b>Tervetuloa! Kirjaudu sisään tai luo uusi tunnus jatkaaksesi.</b> <br>
     {%endif%}
     {% endwith %}
+    {%endblock%}
+
+    {%block content%}
+    <h2>Kirjautuminen</h2>
     <form action="/login" method="POST">
       <p> Käytttäjätunnus:<br>
         <input type="text" name="username"></p>
@@ -29,6 +34,9 @@
         <input type="submit" value="Kirjaudu"></form></p>
         Eikö sinulla ole käyttäjätunnusta? <a href="/signup">Luo uusi käyttäjä</a>
       </form>
+    {% endblock %}
+
+
     <img src="/static/haukerias.png">
   </body>
 </html>

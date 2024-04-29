@@ -104,6 +104,7 @@ def singup():
         if len(password) >30:
             "Salasanan pituus ei saa ylittää 30 merkkiä"
             return redirect("/")
+        
         if len(username) >20:
             flash("Käyttäjänimen maksimipituus on 20 merkkiä")
             return redirect("/")
@@ -121,7 +122,9 @@ def singup():
 def mypage():
     username = session.get("username")
     if not username:
-        return redirect("/login")
+        session.pop('_flashes', None)
+        flash("Sinun täytyy ensin kirjautua sisään")
+        return redirect("/")
     return render_template("mypage.html")
 
 
@@ -129,7 +132,7 @@ def mypage():
 def shop():
     username = session.get("username")
     if not username:
-        return redirect("/login")
+        return redirect("/")
     #session.pop('_flashes', None)
     haukerias_query= select(creatureprices.c.price).where(creatureprices.c.type == "haukerias")
     haukerias_result = db.session.execute(haukerias_query)
