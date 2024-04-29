@@ -1,5 +1,5 @@
 # Otuskauppa
-Nettipeli jossa voi ostaa (ja myydä) fantasiaotuksia. Ajatuksena oli, että olisin voinut piirtää ainakin osan otuksista itse.
+Nettipeli jossa keräillään fantasiaotuksia. schema.sql on tehty pgAdmin4 ohjelmalla. 
 
 Tämän hetkiset ominaisuudet:
 - Luo käyttäjä
@@ -8,8 +8,8 @@ Tämän hetkiset ominaisuudet:
 - Peliraha, joka laskee otuksen hinnan verran kun ostat otuksen
 -  Omat otukset sivu
 -  Jokaisella pelin otuksella on nyt oma sivu
+Muut parannukset:
 - Uudet commit tägit ovat kuvaavampia (ei pelkkä default teksti) ja niitä on tehty tiheämpään tahtiin
-
 
 Kesken:
 - Foorumi, jolle voi kirjoittaa palautetta ja jutella muiden sovelluksen käyttäjien kanssa
