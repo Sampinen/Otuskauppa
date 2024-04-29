@@ -1,7 +1,61 @@
-from app import app
-import visits
-from flask import render_template
+from flask import Flask 
+from flask import render_template, request,url_for,redirect,session, flash
+from flask_sqlalchemy import SQLAlchemy 
+from os import getenv
+from sqlalchemy.sql import text
+from dotenv import load_dotenv
+load_dotenv()
+from werkzeug.security import check_password_hash, generate_password_hash
+import sqlalchemy as sql
+from sqlalchemy import MetaData, Table, Column, Integer, String, Boolean,select, update, insert
 
+
+
+app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://localhost"
+db = SQLAlchemy(app)
+app.secret_key =getenv("SECRET_KEY")
+meta = sql.MetaData()
+
+#Taulu, joka sisältää kaikki rekisteröityneet pelaajat ja heidän tietonsa (käyttäjänimi, salasana, rahat)
+registered = sql.Table(
+    'registered', meta,
+    sql.Column('id',Integer,primary_key=True),
+    sql.Column('username',String),
+    sql.Column('password',String),
+    sql.Column('money',Integer)
+)
+#Taulu joka sisältää kaikki otustyypit ja niiden hinnat
+creatureprices = sql.Table(
+    'creatureprices',meta,
+    sql.Column('id',Integer,primary_key=True),
+    sql.Column('type',String),
+    sql.Column('price',Integer)
+)
+#Taulu joka sisältää kaikkien pelaajien omistamat otukset
+creatures = sql.Table(
+    'creatures',meta,
+    sql.Column('id',Integer,primary_key=True),
+    sql.Column('name',String),
+    sql.Column('type',String),
+    sql.Column('owner',String)
+)
+#Taulu, joka sisältää lahjakoodeja, joilla voi lunastaa pelinsisäistä rahaa. Ei vielä käytössä
+giftcodes = sql.Table(
+    'giftcodes', meta,
+    sql.Column('id',Integer,primary_key=True),
+    sql.Column('code',String),
+    sql.Column('claimed',Boolean)
+)
+#Taulu, joka sisältää foorumiin postatut viestit ja niiden lähettäjät. Ei vielä käytössä
+forumposts = sql.Table(
+    'forumposts',meta,
+    sql.Column('id',Integer,primary_key=True),
+    sql.Column('content',String),
+    sql.Column('username',String)
+)
+
+#Pääsivu, josta pääsee kirjautumaan sisään
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -189,3 +243,4 @@ def send():
     db.session.execute(ins)
     db.session.commit()
     return redirect("/forum")
+
