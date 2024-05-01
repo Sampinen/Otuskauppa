@@ -1,8 +1,11 @@
 from app import app
+from flask import Flask
 import users
 import forum
 import creatures
-from flask import render_template
+from flask import render_template, request,url_for,redirect,session, flash
+import sqlalchemy as sql
+
 
 @app.route("/")
 def index():
