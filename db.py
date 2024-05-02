@@ -8,4 +8,4 @@ load_dotenv()
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://localhost"
 db = SQLAlchemy(app)
 app.secret_key =getenv("SECRET_KEY")
-meta = sql.MetaData()
+#meta = sql.MetaData()

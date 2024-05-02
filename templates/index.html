@@ -7,37 +7,39 @@
     <title>Otuskauppa</title>
   </head>
 
-  <body>
+  <body style="background-color: #1a1a1b; color: #d2d7d8">
     {%block title%}
-    <h1>Otuskauppa</h1>
+    <center><h1>Otuskauppa</h1></center>
     {% with messages = get_flashed_messages() %}
        {% if messages %}
          <ul class=flashes>
            {% for message in messages %}
-              <p>{{ message }}</p>
+              <center><p>{{ message }}</p></center>
                </div>
            {% endfor %}
          </ul>
         {% else %}
-          <b>Tervetuloa! Kirjaudu sisään tai luo uusi tunnus jatkaaksesi.</b> <br>
+      <center><b>Tervetuloa! Kirjaudu sisään tai luo uusi tunnus jatkaaksesi.</b> </center>
+      <br>
     {%endif%}
     {% endwith %}
     {%endblock%}
 
     {%block content%}
-    <h2>Kirjautuminen</h2>
+    <center><h2>Kirjautuminen</h2></center>
     <form action="/login" method="POST">
-      <p> Käytttäjätunnus:<br>
-        <input type="text" name="username"></p>
-      <p>Salasana:<br>
-        <input type="password" name="password"></p>
-        <input type="submit" value="Kirjaudu"></form></p>
-        Eikö sinulla ole käyttäjätunnusta? <a href="/signup">Luo uusi käyttäjä</a>
+      <center><p> Käytttäjätunnus:</p></center>
+        <center><input type="text" name="username"></p></center>
+      <center><p>Salasana:</p></center>
+        <center><input type="password" name="password"></p></center>
+        <center><input type="submit" value="Kirjaudu"></form></p></center>
+        <center>Eikö sinulla ole käyttäjätunnusta? <a href="/signup">Luo uusi käyttäjä</a></center>
       </form>
     {% endblock %}
+    <br>
 
 
-    <img src="/static/haukerias.png">
+    <center><img src="/static/haukerias.png"></center>
   </body>
 </html>
 

@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+    <style>
+        .content {
+          /* max-width: 500px; */
+          margin: auto;
+        }
+    </style>
+
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,7 +14,8 @@
         <title>Lähetä viesti</title>
     </head>
     
-    <body>
+    <body style="background-color: #1a1a1b; color: #d2d7d8">
+        <center>
         <form action="/send" method="POST">
             Viesti:
             <br>
@@ -16,5 +24,6 @@
             <input type="submit" value="Lähetä">
             <br>
         </form>
+        </center>
     </body>
 </html>

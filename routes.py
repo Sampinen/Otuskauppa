@@ -1,10 +1,20 @@
 from app import app
-from flask import Flask
+#from flask import Flask
 import users
 import forum
 import creatures
+from flask import Flask 
 from flask import render_template, request,url_for,redirect,session, flash
+from flask_sqlalchemy import SQLAlchemy 
+from os import getenv
+from sqlalchemy import text
+from dotenv import load_dotenv
+load_dotenv()
+from werkzeug.security import check_password_hash, generate_password_hash
 import sqlalchemy as sql
+
+#from sqlalchemy import MetaData, Table, Column, Integer, String, Boolean,select, update, insert
+
 
 
 @app.route("/")
@@ -16,15 +26,15 @@ def login():
     username = request.form["username"]
     password = request.form["password"]
     session["username"] = username
-    user = users.login(username,password)
+    user = users.login(username)
     if not user:
         flash("Väärä käyttäjätunnus tai salasana")
         return redirect("/logout")
     else:
-        hash_value = user.password
+        hash_value = users.login(username).password
         if check_password_hash(hash_value, password):
             flash("Kirjautuminen onnistui")
-            money = users.get_money
+            money = users.get_money(username)
             session["money"] = money
             return redirect("/mypage")
         else:
@@ -108,7 +118,7 @@ def buy(creature_type):
         return redirect("/shop")
 
     updated_money = current_money - creature_price
-    users.update_money(updated_money)
+    users.update_money(username, updated_money)
 
     creatures.add_creature(username,creature_type)
     session["money"] = updated_money
@@ -123,7 +133,7 @@ def mycreatures():
         session.pop('_flashes', None)
         flash("Sinun täytyy ensin kirjautua sisään")
         return redirect("/")
-    creatures.get_creatures(username)
+    my_creatures=creatures.get_creatures(username)
     return render_template("mycreatures.html",my_creatures = my_creatures)
 #luo automaattisesti sivun otuksen id:n mukaan. Kaikkilla kirjautuneilla on pääsy katsomaan otuksia, mutta ominaisuudet ovat avoinna ainoastaan omistajalle (nimen vaihto, myynti jne.)
 @app.route("/creature/<int:id>")
@@ -133,7 +143,7 @@ def page(id):
         session.pop('_flashes', None)
         flash("Sinun täytyy ensin kirjautua sisään")
         return redirect("/")
-    creature = creatures.get_creature()
+    creature = creatures.get_info(id)
     if not creature:
         return "Sivua ei ole olemassa"
         

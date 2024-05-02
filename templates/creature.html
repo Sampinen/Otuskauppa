@@ -9,20 +9,15 @@
     <title>{{creature_name}}</title>
 </head>
 
-<body>
+<body style="background-color: #1a1a1b; color: #d2d7d8">
+    <center>
     <a href="/mypage">Takaisin omalle sivulle</a> 
     <br>
     <p>ID: {{creature_id}}</p>
     <p>Omistaja: {{creature_owner}}</p>
     <p>Nimi: {{creature_name}}</p>
     <img src={{picture}}>
-     { %if is_owner%}
-    <form action="/changename/{{creature_id}}" method="POST">
-    uusi nimi: <input type="text" name="name"> 
-    <br>
-    <input type="submit" value="Vaihda nimeä"> 
-    <br>
-    {%endif%}
+    </center>
 </body>
 
 </html>

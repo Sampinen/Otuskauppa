@@ -1,4 +1,4 @@
-# Otuskauppa
+# Otustarha
 Nettipeli jossa keräillään fantasiaotuksia. schema.sql on tehty pgAdmin4 ohjelmalla. 
 
 Tämän hetkiset ominaisuudet:
@@ -10,7 +10,7 @@ Tämän hetkiset ominaisuudet:
 -  Jokaisella pelin otuksella on nyt oma sivu
 Muut parannukset:
 - Uudet commit tägit ovat kuvaavampia (ei pelkkä default teksti) ja niitä on tehty tiheämpään tahtiin
-
+- Nimi vaihdettu osuvammaksi, koska kyseessä ei ole varsinaisesti kauppa vaikka siinä voi ostaa asioita
 Kesken:
 - Foorumi, jolle voi kirjoittaa palautetta ja jutella muiden sovelluksen käyttäjien kanssa
 - Otuksen nimeä voi vaihtaa

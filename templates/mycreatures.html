@@ -7,16 +7,17 @@
     <title>Omat otukset</title>
 </head>
 
-<body>
-    {%block title%}
+<body style="background-color: #1a1a1b; color: #d2d7d8">
+    <center>
+    <!-- {%block title%} -->
     <h1>Omat otukset</h1>
     <hr>
     {% for creature in my_creatures %}
     <a href="/creature/{{creature.id}}">{{creature.name}}</a>
     <hr>
     {% endfor %}
-    {%endblock%}
-    
+    <!-- {%endblock%} -->
+    </center>
 </body>
 
 </html>

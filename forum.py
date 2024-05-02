@@ -1,3 +1,6 @@
+from sqlalchemy.sql import text
+from db import db
+
 #forummessage
     # ins = messages.insert().values(content = webcontent)
     # db.session.execute(ins)

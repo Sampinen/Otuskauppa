@@ -1,14 +1,16 @@
-from sqlalchemy import text
+from sqlalchemy.sql import text
+from db import db
 
 #sign-up
 def signup(username, password_hash):
     insert_sql = text("INSERT INTO registered (username, password) VALUES (:username,:password_hash)")
     sql_execute = db.session.execute(insert_sql, {"username":username,"password_hash":password_hash})
-    return db.session.commit()
-def login(username, password):
-    select_sql = text("SELECT (username, password) FROM registered WHERE username=:username,password =:password")
-    sql_execute = db.session.execute(select_sql,{"username":username,"password":password})
-    return sql_execute.fetchone()
+    db.session.commit()
+def login(username):
+    select_sql = text("SELECT username, password FROM registered WHERE username=:username")
+    sql_execute = db.session.execute(select_sql,{"username":username})
+    user = sql_execute.fetchone()
+    return user
 
 
 #Tarkastaa onko käyttäjätunnus uniikki
@@ -33,4 +35,4 @@ def get_money(username):
 def update_money(username, money):
     update_sql = text("UPDATE registered SET money =:money WHERE username=:username")
     db.session.execute(update_sql,{"money":money,"username":username})
-    return db.session.commit()
+    db.session.commit()

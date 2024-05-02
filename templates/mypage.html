@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+    <style>
+        
+    </style>
     <head>
        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,7 +10,8 @@
        <title>Oma sivu</title>
     </head>
 
-    <body>
+    <body style="background-color: #1a1a1b; color: #d2d7d8">
+        <center>
         {%block title%}
         <h1>Pelaajan {{session.username}} kotisivu</h1>
         <p>Tervetuloa takaisin {{session.username}} !</p>
@@ -22,9 +26,8 @@
         <br>
         <a href="/logout">Kirjaudu ulos</a>
         {%endblock%}
-
-
-
+        </center>
+    
     </body>
 
 
