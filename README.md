@@ -20,7 +20,7 @@ Kesken:
 
 - Otuksen nimeä voi vaihtaa
   
-Mahdolliset tulevat ominaisuudet (saatan lisätä ominaisuuksia myöhemmin):
+Mahdolliset tulevat ominaisuudet (saatan lisätä ominaisuuksia myöhemmin kurssin jälkeen):
 - Lisää taidetta
 - Visuaalista parantelua
 - Parempi nimi sovellukselle ja pelinsisäiselle valuutalle.
