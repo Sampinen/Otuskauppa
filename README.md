@@ -40,7 +40,7 @@ Linkki pythonin asennukseen https://www.python.org/downloads/
   ![image](https://github.com/Sampinen/Otuskauppa/assets/149503786/405b4c88-ed26-48b0-8b9b-897479c1a30c)
 Asenna psql seuraavan linkin avulla: https://github.com/hy-tsoha/local-pg
 - Siirry terminaaliin
-- tarkista, että olet oikeassa kansiossa esim. cd ./git/Otustarha
+- tarkista, että olet oikeassa kansiossa esim. /git/Otuskauppa
 - Suorita seuraavat komennot terminaalissa:
 python3 -m venv venv
 source venv/bin/activate
