@@ -2,6 +2,7 @@ from app import app
 #from flask import Flask
 import messageforum
 import users
+import giftcodes1
 import creatures
 from flask import Flask 
 from flask import render_template, request,url_for,redirect,session, flash
@@ -206,5 +207,38 @@ def send():
 
 @app.route("/giftcodes")
 def giftcodes():
-    giftcode = request.form["giftcode"]
+
+
     return render_template("giftcodes.html")
+
+@app.route("/getgiftcode", methods=["POST"])
+def getgiftcode():
+    username = session.get("username")
+    if not username:
+        session.pop('_flashes', None)
+        flash("Sinun täytyy ensin kirjautua sisään")
+        return redirect("/")
+    giftcode = request.form["giftcode"]
+    if len(giftcode) >50:
+        session.pop('_flashes', None)
+        flash("Syöttämäsi koodi on liian pitkä")
+        return redirect("/giftcodes")
+    if len(giftcode) <1:
+        session.pop('_flashes', None)
+        flash("Syötit väärän koodin")
+        return redirect("/giftcodes")
+    giftcode_found= giftcodes1.find_code(giftcode)
+    if giftcode_found and giftcode_found.claimed == False:
+        current_money = session.get("money")
+        updated_money = current_money + giftcode_found.money
+        users.update_money(username, updated_money)
+        if giftcode_found.reclaimable == False:
+            giftcode_found.claimed == True
+        session.pop('_flashes', None)
+        flash("Tilillesi on lisätty "+str(giftcode_found.money)+" kultarahaa")
+        session["money"] = updated_money
+    else:
+        session.pop('_flashes', None)
+        flash("Koodia ei ole olemassa tai joku muu on käyttänyt sen. Tarkista, että kirjoitit sen oikein.")
+        return redirect ("/giftcodes")
+    return redirect("/giftcodes")

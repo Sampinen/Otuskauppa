@@ -9,13 +9,25 @@
     </head>
 
     <body style="background-color: #1a1a1b; color: #d2d7d8">
-        
-        <form action="/send" method="POST">
-            lahjakoodi: <br>
-            <textarea name="content" rows="3" cols="40"></textarea>
+        {% with messages = get_flashed_messages() %}
+       {% if messages %}
+         <ul class=flashes>
+           {% for message in messages %}
+              <center><p>{{ message }}</p></center>
+               </div>
+           {% endfor %}
+         </ul>
+         {%endif%}
+         {%endwith%}
+        <form action="/getgiftcode" method="POST">
+            <a href="/mypage">Takaisin omalle sivulle</a>
+            <a href="/shop">Kauppa</a>
+            Lahjakoodi: 
+            <br>
+            <input type="text" name="giftcode"> <br>
             <br>
             <input type="submit" value="Lähetä">
-            </form>
+        </form>
         
     </body>
 </html>
