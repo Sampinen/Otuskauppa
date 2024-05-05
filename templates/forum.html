@@ -10,6 +10,7 @@
 
     <body style="background-color: #1a1a1b; color: #d2d7d8">
         <center>
+        <a href="/mypage">Takaisin omalle sivulle</a>
         {% with flashes = get_flashed_messages() %}
            {% if flashes %}
                <ul class=flashes>
@@ -23,11 +24,17 @@
             {%endif%}
         {% endwith %}
         <hr>
+        <form action="/send" method="POST">
+            Uusi viesti: <br>
+            <textarea name="content" rows="3" cols="40"></textarea>
+            <br>
+            <input type="submit" value="Lähetä">
+            </form>
+
         {% for message in messages %}
-        {{ message.content }}
+        @{{message.username}}:{{ message.content }} 
         <hr>
         {% endfor %}
-        <a href="/newmessage">Lähetä viesti</a>
         </center>
      
     </body>

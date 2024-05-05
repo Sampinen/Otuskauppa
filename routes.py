@@ -1,7 +1,7 @@
 from app import app
 #from flask import Flask
+import messageforum
 import users
-import forum
 import creatures
 from flask import Flask 
 from flask import render_template, request,url_for,redirect,session, flash
@@ -179,7 +179,11 @@ def changename(creature_id):
 
 @app.route("/forum")
 def forum():
-    return render_template("forum.html")
+    messages = messageforum.get_messages()
+    return render_template("forum.html", messages = messages)
+
+
+
 
 @app.route("/send", methods=["POST"])
 def send():
@@ -188,7 +192,7 @@ def send():
         session.pop('_flashes', None)
         flash("Sinun täytyy ensin kirjautua sisään")
         return redirect("/")
-    webcontent = request.form["content"]
+    webcontent = request.form["content"] 
     if len(webcontent) >250:
         session.pop('_flashes', None)
         flash("Viestin pituus ei saa ylittää 250 merkkiä")
@@ -197,5 +201,10 @@ def send():
         session.pop('_flashes', None)
         flash("Et voi lähettää tyhjää viestiä")
         return redirect("/forum")
-    forum.send(username,webcontent)
+    message = messageforum.send_message(username,webcontent)
     return redirect("/forum")
+
+@app.route("/giftcodes")
+def giftcodes():
+    giftcode = request.form["giftcode"]
+    return render_template("giftcodes.html")
