@@ -233,7 +233,7 @@ def getgiftcode():
         updated_money = current_money + giftcode_found.money
         users.update_money(username, updated_money)
         if giftcode_found.reclaimable == False:
-            giftcode_found.claimed == True
+            giftcodes1.update_claimed(giftcode)
         session.pop('_flashes', None)
         flash("Tilillesi on lisätty "+str(giftcode_found.money)+" kultarahaa")
         session["money"] = updated_money

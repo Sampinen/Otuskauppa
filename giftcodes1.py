@@ -10,3 +10,7 @@ def find_code(code):
     select_sql = text("SELECT claimed,reclaimable,money FROM giftcodes WHERE (code=:code)")
     sql_execute = db.session.execute(select_sql,{"code":code})
     return sql_execute.fetchone()
+def update_claimed(code):
+    update_sql = text("UPDATE giftcodes SET claimed =true WHERE code=:code")
+    db.session.execute(update_sql,{"code":code})
+    db.session.commit()
