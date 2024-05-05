@@ -8,16 +8,19 @@ Tämän hetkiset ominaisuudet:
 - Peliraha, joka laskee otuksen hinnan verran kun ostat otuksen
 -  Omat otukset sivu
 -  Jokaisella pelin otuksella on nyt oma sivu
+- Foorumi, jolle voi kirjoittaa palautetta ja jutella muiden sovelluksen käyttäjien kanssa
+- Kertakäyttöiset/monikäyttöiset "lahjakoodit"
+
 Muut parannukset:
 - Uudet commit tägit ovat kuvaavampia (ei pelkkä default teksti) ja niitä on tehty tiheämpään tahtiin
 - Nimi vaihdettu osuvammaksi, koska kyseessä ei ole varsinaisesti kauppa vaikka siinä voi ostaa asioita
-Kesken:
-- Foorumi, jolle voi kirjoittaa palautetta ja jutella muiden sovelluksen käyttäjien kanssa
-- Otuksen nimeä voi vaihtaa
-- Kertakäyttöiset/monikäyttöiset "lahjakoodit"
 - Koodia paranneltu siistimmäksi ja enemmän materiaalia vastaavaksi
+
+Kesken:
+
+- Otuksen nimeä voi vaihtaa
   
-Mahdolliset tulevat ominaisuudet:
+Mahdolliset tulevat ominaisuudet (saatan lisätä ominaisuuksia myöhemmin):
 - Lisää taidetta
 - Visuaalista parantelua
 - Parempi nimi sovellukselle ja pelinsisäiselle valuutalle.
@@ -36,13 +39,16 @@ Linkki pythonin asennukseen https://www.python.org/downloads/
   ![image](https://github.com/Sampinen/Otuskauppa/assets/149503786/405b4c88-ed26-48b0-8b9b-897479c1a30c)
 Asenna psql seuraavan linkin avulla: https://github.com/hy-tsoha/local-pg
 - Siirry terminaaliin
-- tarkista, että olet oikeassa kansiossa esim. cd ./Downloads/Otuskauppa/
+- tarkista, että olet oikeassa kansiossa esim. cd ./git/Otustarha
 - Suorita seuraavat komennot terminaalissa:
 python3 -m venv venv
 source venv/bin/activate
-- lataa tarvittavat lisäosat komennolla 
+- lataa tarvittavat lisäosat komennolla pip install -r requirements.txt
+- Koita ajaa komento psql < schema.sql
+Jos tämä ei toimi:
 - Avaa uusi terminaali ja aja start-pg.sh
 - Avaa vielä toinen uusi terminaali kirjoittamalla psql
+Aja psql < schema.sql uudestaan
 - Palaa takaisin ensimmäiseen terminaaliin ja aja komento: flask run
 
 Lahjakoodeja voi luoda ajamalla giftcodegenerator.py ennen kuin ohjelman ajaa Flashillä terminaalissa! Se luo myös automaattisesti giftcodes.txt nimisen tiedoston, josta voit helposti kopioida ja testata niitä sovelluksessa. Turvallisuuden kannalta kannattaa kenties siirtää sekä .text että .py tiedostot toiseen paikkaan sen jälkeen kun koodit on luotu, mutta tällä tuskin on suurempaa merkitystä, kun sovellusta testaa omalla koneella.
