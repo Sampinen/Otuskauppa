@@ -49,7 +49,7 @@ source venv/bin/activate
 Jos tämä ei toimi:
 - Avaa uusi terminaali ja aja start-pg.sh
 - Avaa vielä toinen uusi terminaali kirjoittamalla psql
-Aja psql < schema.sql uudestaan
+- Aja psql < schema.sql uudestaan
 - Palaa takaisin ensimmäiseen terminaaliin ja aja komento: flask run
 
 Lahjakoodeja voi luoda ajamalla giftcodegenerator.py ennen kuin ohjelman ajaa Flashillä terminaalissa! Se luo myös automaattisesti giftcodes.txt nimisen tiedoston, josta voit helposti kopioida ja testata niitä sovelluksessa. Turvallisuuden kannalta kannattaa kenties siirtää sekä .text että .py tiedostot toiseen paikkaan sen jälkeen kun koodit on luotu, mutta tällä tuskin on suurempaa merkitystä, kun sovellusta testaa omalla koneella.
