@@ -1,5 +1,5 @@
 # Otustarha
-Nettipeli jossa keräillään fantasiaotuksia. schema.sql on tehty pgAdmin4 ohjelmalla. 
+Nettipeli jossa keräillään fantasiaotuksia.
 
 Tämän hetkiset ominaisuudet:
 - Luo käyttäjä
