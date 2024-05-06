@@ -15,6 +15,7 @@ Muut parannukset:
 - Uudet commit tägit ovat kuvaavampia (ei pelkkä default teksti) ja niitä on tehty tiheämpään tahtiin
 - Nimi vaihdettu osuvammaksi, koska kyseessä ei ole varsinaisesti kauppa vaikka siinä voi ostaa asioita
 - Koodia paranneltu siistimmäksi ja enemmän materiaalia vastaavaksi
+- Sivu näytää nyt paremmalta visuaalisesti
 
 Kesken:
 
@@ -24,7 +25,6 @@ Mahdolliset tulevat ominaisuudet (saatan lisätä ominaisuuksia myöhemmin kurss
 - Valitettavasti SQL komennot eivät ole yhtä monipuolisia kuin olisi vaadittu, joten monipuolisemmin niitä :)
 - Lisää taidetta
 - Visuaalista parantelua
-- Parempi nimi sovellukselle ja pelinsisäiselle valuutalle.
 - Salasanan tulee sisätää sekä kirjaimia, että numeroita
 - Luo toimiva osoite (niin että sovellusta ei tarvitse ajaa terminaalista)
 - Ruokapalkki, joka laskee 10% päivässä
