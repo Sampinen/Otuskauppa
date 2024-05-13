@@ -2,7 +2,6 @@ from app import app
 #from flask import Flask
 import messageforum
 import users
-import giftcodes1
 import creatures
 from flask import Flask 
 from flask import render_template, request,url_for,redirect,session, flash
@@ -155,7 +154,7 @@ def page(id):
     if creature_type == "haukerias":
         picture = "/static/haukerias.png"
     if creature_type == "lohari":
-        picture = "/static/lohari.jpg"
+        picture = "/static/lohari.png"
     creature_owner = creature.owner
     #Tällä hetkellä is_owner muuttuja ei vielä tee mitään
     if username == creature_owner:
